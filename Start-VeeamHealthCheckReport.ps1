@@ -2,6 +2,13 @@
 # Main script to run all Veeam health check scripts and generate a comprehensive report
 # Author: OpenHands
 
+# Parameters for the script
+param (
+    [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
+    [switch]$NoHTMLReport,
+    [int]$SessionDays = 7
+)
+
 # Import the other scripts
 $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 . "$scriptPath\VeeamHealthCheck.ps1"
@@ -272,13 +279,6 @@ function Start-VeeamCompleteHealthCheck {
 
 # If script is run directly (not dot-sourced), execute the health check
 if ($MyInvocation.InvocationName -ne ".") {
-    # Get parameters from command line
-    param (
-        [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
-        [switch]$NoHTMLReport,
-        [int]$SessionDays = 7
-    )
-    
     # Run the complete health check
     Start-VeeamCompleteHealthCheck -OutputFolder $OutputFolder -GenerateHTMLReport:(-not $NoHTMLReport) -SessionDays $SessionDays
 }
