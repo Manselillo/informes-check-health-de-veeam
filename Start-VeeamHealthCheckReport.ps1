@@ -4,7 +4,7 @@
 
 # Parameters for the script
 param (
-    [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
+    [string]$OutputFolder = "C:\CheckHealthVeeam\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
     [switch]$NoHTMLReport,
     [int]$SessionDays = 7
 )
@@ -246,7 +246,7 @@ function Start-VeeamCompleteHealthCheck {
     
     # Create output folder if it doesn't exist
     if (-not (Test-Path -Path $OutputFolder)) {
-        New-Item -Path $OutputFolder -ItemType Directory | Out-Null
+        New-Item -Path $OutputFolder -ItemType Directory -Force | Out-Null
         Write-Host "Created output folder: $OutputFolder" -ForegroundColor Green
     }
     

@@ -29,7 +29,7 @@ Para ejecutar una verificación de salud completa y generar un informe HTML:
 .\Start-VeeamHealthCheckReport.ps1
 ```
 
-Por defecto, los resultados se guardarán en una carpeta con el formato `VeeamHealthCheck_YYYYMMDD_HHMMSS` en el directorio actual.
+Por defecto, los resultados se guardarán en una carpeta con el formato `C:\CheckHealthVeeam\VeeamHealthCheck_YYYYMMDD_HHMMSS`.
 
 ### Método 2: Especificar una carpeta de salida personalizada
 
