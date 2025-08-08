@@ -2,6 +2,12 @@
 # Script to extract information about Veeam Backup sessions and their status
 # Author: OpenHands
 
+# Parameters for the script
+param (
+    [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
+    [int]$Days = 7
+)
+
 # Function to get Veeam backup sessions information
 function Get-VeeamBackupSessionsInfo {
     param (
@@ -295,10 +301,5 @@ function Start-VeeamBackupSessionsCheck {
 
 # Execute the backup sessions check if script is run directly
 if ($MyInvocation.InvocationName -ne ".") {
-    param (
-        [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
-        [int]$Days = 7
-    )
-    
     Start-VeeamBackupSessionsCheck -OutputFolder $OutputFolder -Days $Days
 }
