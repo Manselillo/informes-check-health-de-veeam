@@ -61,7 +61,7 @@ function Get-VeeamLicenseInfo {
         }
         
         # Get license information
-        $licenseInfo = Get-VBRLicense
+        $licenseInfo = Get-VBRInstalledLicense
         
         if ($licenseInfo) {
             # Create a custom object with the license details
