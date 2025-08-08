@@ -90,7 +90,7 @@ function Get-VeeamLicenseInfo {
                 UsedVULLicenseCount = $licenseInfo.UsedVULLicenseCount
                 NASLicenseCount = $licenseInfo.NASLicenseCount
                 UsedNASLicenseCount = $licenseInfo.UsedNASLicenseCount
-                VeeamVersion = (Get-VBRVersion).ToString()
+                VeeamVersion = (Get-VBRBackupServerInfo).ProductVersion
             }
             
             # Export to CSV

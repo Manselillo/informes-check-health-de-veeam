@@ -108,9 +108,13 @@ function Get-VeeamRepositoriesInfo {
                     Type = $repo.Type
                     Path = $repo.Path
                     Host = $repo.Host.Name
-                    FreeSpace = [math]::Round($repo.GetContainer().CachedFreeSpace / 1GB, 2)
-                    TotalSpace = [math]::Round($repo.GetContainer().CachedTotalSpace / 1GB, 2)
-                    FreePercentage = if ($repo.GetContainer().CachedTotalSpace -gt 0) {
+                    FreeSpace = if ($repo.GetContainer().CachedFreeSpace -ne $null) { 
+                        [math]::Round($repo.GetContainer().CachedFreeSpace / 1GB, 2) 
+                    } else { 0 }
+                    TotalSpace = if ($repo.GetContainer().CachedTotalSpace -ne $null) { 
+                        [math]::Round($repo.GetContainer().CachedTotalSpace / 1GB, 2) 
+                    } else { 0 }
+                    FreePercentage = if ($repo.GetContainer().CachedTotalSpace -ne $null -and $repo.GetContainer().CachedTotalSpace -gt 0 -and $repo.GetContainer().CachedFreeSpace -ne $null) {
                         [math]::Round(($repo.GetContainer().CachedFreeSpace / $repo.GetContainer().CachedTotalSpace) * 100, 2)
                     } else { 0 }
                     IsUnavailable = $repo.IsUnavailable

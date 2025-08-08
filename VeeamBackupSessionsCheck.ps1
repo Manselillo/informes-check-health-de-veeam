@@ -45,42 +45,42 @@ function Get-VeeamBackupSessionsInfo {
                 }
                 
                 # Calculate processed size in GB
-                $processedGB = if ($session.Progress.ProcessedSize -gt 0) {
+                $processedGB = if ($session.Progress.ProcessedSize -ne $null -and $session.Progress.ProcessedSize -gt 0) {
                     [math]::Round($session.Progress.ProcessedSize / 1GB, 2)
                 } else {
                     0
                 }
                 
                 # Calculate backup size in GB
-                $backupSizeGB = if ($session.BackupStats.BackupSize -gt 0) {
+                $backupSizeGB = if ($session.BackupStats.BackupSize -ne $null -and $session.BackupStats.BackupSize -gt 0) {
                     [math]::Round($session.BackupStats.BackupSize / 1GB, 2)
                 } else {
                     0
                 }
                 
                 # Calculate data read in GB
-                $dataReadGB = if ($session.Progress.ReadSize -gt 0) {
+                $dataReadGB = if ($session.Progress.ReadSize -ne $null -and $session.Progress.ReadSize -gt 0) {
                     [math]::Round($session.Progress.ReadSize / 1GB, 2)
                 } else {
                     0
                 }
                 
                 # Calculate data transferred in GB
-                $dataTransferredGB = if ($session.Progress.TransferedSize -gt 0) {
+                $dataTransferredGB = if ($session.Progress.TransferedSize -ne $null -and $session.Progress.TransferedSize -gt 0) {
                     [math]::Round($session.Progress.TransferedSize / 1GB, 2)
                 } else {
                     0
                 }
                 
                 # Calculate dedupe ratio
-                $dedupeRatio = if ($session.BackupStats.DedupRatio -gt 0) {
+                $dedupeRatio = if ($session.BackupStats.DedupRatio -ne $null -and $session.BackupStats.DedupRatio -gt 0) {
                     [math]::Round($session.BackupStats.DedupRatio, 2)
                 } else {
                     0
                 }
                 
                 # Calculate compression ratio
-                $compressionRatio = if ($session.BackupStats.CompressRatio -gt 0) {
+                $compressionRatio = if ($session.BackupStats.CompressRatio -ne $null -and $session.BackupStats.CompressRatio -gt 0) {
                     [math]::Round($session.BackupStats.CompressRatio, 2)
                 } else {
                     0
