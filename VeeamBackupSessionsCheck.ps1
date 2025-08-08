@@ -11,7 +11,7 @@ param (
 # Function to get Veeam backup sessions information
 function Get-VeeamBackupSessionsInfo {
     param (
-        [string]$OutputPath = ".\VeeamBackupSessions.csv",
+        [string]$OutputPath = "C:\CheckHealthVeeam\VeeamBackupSessions.csv",
         [int]$Days = 7
     )
     
@@ -173,7 +173,7 @@ function Get-VeeamBackupSessionsInfo {
 # Function to get detailed information about failed sessions
 function Get-VeeamFailedSessionsDetails {
     param (
-        [string]$OutputPath = ".\VeeamFailedSessions.csv",
+        [string]$OutputPath = "C:\CheckHealthVeeam\VeeamFailedSessions.csv",
         [int]$Days = 7
     )
     
@@ -274,7 +274,7 @@ function Get-VeeamFailedSessionsDetails {
 # Main execution block
 function Start-VeeamBackupSessionsCheck {
     param (
-        [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
+        [string]$OutputFolder = "C:\CheckHealthVeeam\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
         [int]$Days = 7
     )
     

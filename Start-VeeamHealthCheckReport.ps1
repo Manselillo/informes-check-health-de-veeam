@@ -236,7 +236,7 @@ function New-VeeamHealthCheckHTMLReport {
 # Main function to run all health checks
 function Start-VeeamCompleteHealthCheck {
     param (
-        [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
+        [string]$OutputFolder = "C:\CheckHealthVeeam\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')",
         [switch]$GenerateHTMLReport = $true,
         [int]$SessionDays = 7
     )

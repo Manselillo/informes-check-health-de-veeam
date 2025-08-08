@@ -5,7 +5,7 @@
 # Function to check if required modules are installed
 function Test-VeeamModules {
     param (
-        [string]$OutputPath = ".\VeeamModulesCheck.csv"
+        [string]$OutputPath = "C:\CheckHealthVeeam\VeeamModulesCheck.csv"
     )
     
     Write-Host "Checking for required Veeam PowerShell modules..." -ForegroundColor Cyan
@@ -48,7 +48,7 @@ function Test-VeeamModules {
 # Function to get Veeam license information
 function Get-VeeamLicenseInfo {
     param (
-        [string]$OutputPath = ".\VeeamLicenseInfo.csv"
+        [string]$OutputPath = "C:\CheckHealthVeeam\VeeamLicenseInfo.csv"
     )
     
     Write-Host "Extracting Veeam license information..." -ForegroundColor Cyan
@@ -132,7 +132,7 @@ function Get-VeeamLicenseInfo {
 # Main execution block
 function Start-VeeamHealthCheck {
     param (
-        [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
+        [string]$OutputFolder = "C:\CheckHealthVeeam\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
     )
     
     # Create output folder if it doesn't exist

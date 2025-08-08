@@ -5,7 +5,7 @@
 # Function to get Veeam backup jobs information
 function Get-VeeamBackupJobsInfo {
     param (
-        [string]$OutputPath = ".\VeeamBackupJobs.csv"
+        [string]$OutputPath = "C:\CheckHealthVeeam\VeeamBackupJobs.csv"
     )
     
     Write-Host "Extracting Veeam backup jobs information..." -ForegroundColor Cyan
@@ -84,7 +84,7 @@ function Get-VeeamBackupJobsInfo {
 # Function to get Veeam repositories information
 function Get-VeeamRepositoriesInfo {
     param (
-        [string]$OutputPath = ".\VeeamRepositories.csv"
+        [string]$OutputPath = "C:\CheckHealthVeeam\VeeamRepositories.csv"
     )
     
     Write-Host "Extracting Veeam repositories information..." -ForegroundColor Cyan
@@ -160,7 +160,7 @@ function Get-VeeamRepositoriesInfo {
 # Function to get Veeam proxies information
 function Get-VeeamProxiesInfo {
     param (
-        [string]$OutputPath = ".\VeeamProxies.csv"
+        [string]$OutputPath = "C:\CheckHealthVeeam\VeeamProxies.csv"
     )
     
     Write-Host "Extracting Veeam proxies information..." -ForegroundColor Cyan
@@ -227,7 +227,7 @@ function Get-VeeamProxiesInfo {
 # Main execution block
 function Start-VeeamBackupComponentsCheck {
     param (
-        [string]$OutputFolder = ".\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
+        [string]$OutputFolder = "C:\CheckHealthVeeam\VeeamHealthCheck_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
     )
     
     # Create output folder if it doesn't exist
